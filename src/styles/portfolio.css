@@ -1,0 +1,287 @@
+/* ---------------------------------------------------------------------------
+ * Portfolio theme layer
+ *
+ * Every colour the site paints comes from a token declared here. Components
+ * never use raw palette classes or hex values — they consume the semantic
+ * BoardUI tokens (`text-text-secondary`, `bg-background-primary-default`,
+ * `border-separator-border`), which this file re-points at the portfolio
+ * palette. Change a value here and the whole site follows.
+ *
+ * Palette intent:
+ *   ink-*        deep navy surfaces, four depth levels
+ *   electric-*   the single CTA hue
+ *   signal-*     secondary accents (cyan / violet) used only for data/details
+ * ------------------------------------------------------------------------- */
+
+@theme {
+  /* Self-hosted variables (fontsource). theme.css resolves --font-sans and
+   * --font-mono through these two names. */
+  --font-inter: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono-source: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Surfaces */
+  --color-ink-950: #04060d;
+  --color-ink-925: #060912;
+  --color-ink-900: #080c17;
+  --color-ink-850: #0a0f1c;
+  --color-ink-800: #0d1322;
+  --color-ink-750: #111829;
+  --color-ink-700: #161e33;
+  --color-ink-600: #1d2740;
+  --color-ink-500: #27334f;
+
+  /* Text */
+  --color-mist-50: #eef2fb;
+  --color-mist-200: #c6cfe4;
+  --color-mist-400: #93a0bd;
+  --color-mist-500: #74829f;
+  --color-mist-600: #566179;
+
+  /* Accents */
+  --color-electric-300: #8fb0ff;
+  --color-electric-400: #5b8cff;
+  --color-electric-500: #3b6fff;
+  --color-electric-600: #2557e0;
+  --color-electric-700: #1b44b8;
+  --color-signal-cyan: #3adfe4;
+  --color-signal-violet: #9b8cff;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The site is dark by design: the tokens below are the only palette in play,
+ * and they are identical on :root and .dark so BoardUI's dark-mode components
+ * and the page agree no matter which class the document carries. */
+:root,
+.dark {
+  color-scheme: dark;
+
+  /* Page + surfaces */
+  --color-background-full: var(--color-ink-950);
+  --color-background-primary-default: var(--color-ink-850);
+  --color-background-primary-hover: var(--color-ink-800);
+  --color-background-primary-active: var(--color-ink-750);
+  --color-background-inner-default: var(--color-ink-900);
+  --color-background-secondary-default: var(--color-ink-900);
+  --color-background-secondary-hover: var(--color-ink-800);
+  --color-background-tertiary-default: var(--color-ink-800);
+  --color-background-tertiary-hover: var(--color-ink-750);
+  --color-background-quaternary-default: var(--color-ink-700);
+
+  /* Text */
+  --color-text-primary: var(--color-mist-50);
+  --color-text-secondary: var(--color-mist-400);
+  --color-text-tertiary: var(--color-mist-500);
+  --color-text-placeholder: var(--color-mist-600);
+  --color-text-disabled: var(--color-mist-600);
+  --color-text-white: #ffffff;
+
+  /* Borders + separators */
+  --color-separator-border: var(--color-ink-700);
+  --color-separator-border-strong: var(--color-ink-600);
+  --color-border-button-default: var(--color-ink-700);
+  --color-border-button-hover: var(--color-ink-600);
+  --color-border-button-active: var(--color-ink-500);
+  --color-border-focus-ring: var(--color-electric-400);
+
+  /* Icons */
+  --color-foreground-icon-primary: var(--color-mist-50);
+  --color-foreground-icon-secondary: var(--color-mist-400);
+  --color-foreground-icon-tertiary: var(--color-mist-500);
+  --color-foreground-icon-quaternary: var(--color-mist-600);
+
+  /* Accent ramp — the CTA hue, re-pointed at electric blue */
+  --color-accent-100: #dbe5ff;
+  --color-accent-200: #b9ccff;
+  --color-accent-300: var(--color-electric-300);
+  --color-accent-400: var(--color-electric-400);
+  --color-accent-500: var(--color-electric-500);
+  --color-accent-600: var(--color-electric-600);
+  --color-accent-700: var(--color-electric-700);
+  --color-accent-800: #16317f;
+  --color-accent-900: #12265e;
+  --color-accent-950: #0a1636;
+
+  /* Primary CTA fills: white 14px text on the lightest stop must clear
+   * WCAG AA 4.5:1. #2f62f2 = 5.06:1, #1b44b8 = 8.19:1. */
+  --gradient-button-primary-default: linear-gradient(
+    180deg,
+    #2f62f2 0%,
+    #1b44b8 100%
+  );
+  --gradient-button-primary-hover: linear-gradient(
+    180deg,
+    #2a5ce8 0%,
+    #2557e0 100%
+  );
+  --gradient-button-primary-active: linear-gradient(
+    180deg,
+    #2557e0 0%,
+    #16317f 100%
+  );
+
+  --color-button-ghost-background: color-mix(in oklab, var(--color-electric-900) 55%, transparent);
+  --color-button-ghost-hover: color-mix(in oklab, var(--color-electric-900) 80%, transparent);
+  --color-button-ghost-active: var(--color-electric-900);
+  --color-button-ghost-foreground: var(--color-electric-300);
+}
+
+/* ---------------------------------------------------------------------------
+ * Utilities used across sections. Small, semantic and shared — not one-off
+ * values sprinkled per component.
+ * ------------------------------------------------------------------------- */
+
+@utility container-page {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 640px) {
+    padding-inline: 2rem;
+  }
+
+  @media (width >= 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Hairline gradient rule used to separate sections without a hard border. */
+@utility rule-fade {
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-ink-700) 18%,
+    var(--color-ink-600) 50%,
+    var(--color-ink-700) 82%,
+    transparent
+  );
+}
+
+/* Engineering grid used behind the hero and the projects section. Two hairline
+ * gradients at low opacity; no image request, no layout impact. */
+@utility surface-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-ink-700) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-ink-700) 55%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center;
+}
+
+/* One soft light source per section, placed behind the heading. */
+@utility glow-soft {
+  background-image: radial-gradient(
+    60% 60% at 50% 0%,
+    color-mix(in oklab, var(--color-electric-500) 16%, transparent),
+    transparent 70%
+  );
+}
+
+/* Gradient hairline border for the emphasised cards. */
+@utility ring-gradient {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      color-mix(in oklab, var(--color-electric-400) 55%, transparent),
+      transparent 38%,
+      transparent 62%,
+      color-mix(in oklab, var(--color-signal-cyan) 30%, transparent)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* The single gradient text treatment, used for one phrase per section. */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-mist-50) 0%,
+    var(--color-electric-300) 42%,
+    var(--color-signal-cyan) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background-full);
+    color: var(--color-text-primary);
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-electric-500) 40%, transparent);
+    color: var(--color-text-white);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Hero console: a packet travelling down the architecture rail.
+ * One 7.5s loop on a 2px dot — cheap (transform/opacity only) and it stops
+ * entirely when motion is reduced.
+ * ------------------------------------------------------------------------- */
+@keyframes packet-run {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  88% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(var(--rail-length, 244px));
+    opacity: 0;
+  }
+}
+
+.packet-run {
+  animation: packet-run 7.5s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packet-run {
+    animation: none;
+    opacity: 0;
+  }
+}
