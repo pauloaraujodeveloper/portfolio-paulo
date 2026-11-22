@@ -53,14 +53,15 @@ isso não foram usados.
 | `dataqore-mapa`, `dataqore-slide`, `dataqore-engenharia` | site publicado (dataqore.vercel.app) | mapa nos modos Negócio e Engenharia e um slide aberto |
 | `estoquepro-dashboard`, `estoquepro-pdv`, `estoquepro-produtos` | app rodando localmente, banco SQLite novo e vendas de exemplo feitas pelo PDV | dashboard, PDV com carrinho e lista de produtos |
 | `omnitask-quadro`, `omnitask-planejador`, `omnitask-nova-tarefa` | app rodando localmente, conta de demonstração e tarefas de exemplo | quadro, planejador mensal e diálogo de nova tarefa |
+| `agendfy-agenda` | app rodando localmente (PostgreSQL descartável, seed `--demo`) | agenda do dia com os três profissionais |
+| `agendfy-chatbot-identidade`, `agendfy-chatbot-menu` | painel rodando localmente (API em memória, clínicas fictícias) | identidade do assistente com prévia do WhatsApp e menu inicial de 12 opções |
 | `agendfy-site-home.png` | site publicado | página inicial |
 | `agendfy-site-recursos.png` | site publicado | seção de recursos |
 | `agendfy-site-seguranca.png` | site publicado | seção de segurança |
 | `agendfy-site-mobile.png` | site publicado | versão móvel |
 
-AgendFy, AgendFy Chatbot, Nexora, Escale e Tiamate não têm captura: são produtos
-privados ou exercícios sem interface publicada. Nesses casos o card mostra um
-painel tipográfico com a stack real.
+Os projetos sem captura de interface (quando houver) mostram um painel tipográfico
+com a stack real, nunca uma interface inventada.
 
 ## Pastas auditadas e descartadas
 

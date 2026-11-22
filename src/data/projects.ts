@@ -67,6 +67,12 @@ export const projects: Project[] = [
     ],
     shots: [
       {
+        src: "/images/projects/agendfy-agenda.webp",
+        alt: "Agenda do dia no AgendFy com uma coluna por profissional e os agendamentos coloridos por status, com paciente, serviço e horário.",
+        width: 1440,
+        height: 900,
+      },
+      {
         src: "/images/projects/agendfy-hoje.webp",
         alt: "Tela inicial do AgendFy com pacientes atrasados, agendamentos ainda sem confirmação e o resumo da agenda do dia por status.",
         width: 1090,
@@ -192,6 +198,18 @@ export const projects: Project[] = [
         alt: "Painel do AgendFy Chatbot na visão de super admin: cartões com total de empresas, ativas, suspensas e convites pendentes, e a lista das clínicas cadastradas com plano, status do WhatsApp e assistente.",
         width: 1440,
         height: 810,
+      },
+      {
+        src: "/images/projects/agendfy-chatbot-identidade.webp",
+        alt: "Configuração da identidade do assistente no painel do AgendFy Chatbot, com nome, tom de voz e mensagem de boas-vindas com a prévia da conversa no WhatsApp.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/images/projects/agendfy-chatbot-menu.webp",
+        alt: "Aba Menu inicial do painel do AgendFy Chatbot, com as doze opções numeradas editáveis e a prévia da primeira mensagem que o paciente recebe.",
+        width: 1440,
+        height: 900,
       },
     ],
     accent: "cyan",
