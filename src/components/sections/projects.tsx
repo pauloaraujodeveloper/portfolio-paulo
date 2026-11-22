@@ -149,7 +149,12 @@ export function Projects() {
             {visibleFeatured.map((project, index) => (
               <Reveal key={project.slug} delay={index * 60}>
                 <div data-reveal-item>
-                  <ProjectCard project={project} onOpen={openProject} variant="featured" />
+                  <ProjectCard
+                    project={project}
+                    onOpen={openProject}
+                    variant="featured"
+                    flip={index % 2 === 1}
+                  />
                 </div>
               </Reveal>
             ))}

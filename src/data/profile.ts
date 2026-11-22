@@ -24,24 +24,14 @@ export const profile = {
   about: [
     "Minha trajetória começou na operação: implantando sistemas, acompanhando usuários e vendo de perto onde o software quebra no dia a dia de uma clínica, de uma marmitaria ou de uma recepção.",
     "Isso mudou a forma como eu programo. Antes de escolher uma biblioteca, pergunto qual regra não pode falhar. No AgendFy, essa regra é o horário: dois agendamentos não podem ocupar o mesmo slot, e isso é garantido por uma constraint no PostgreSQL, não por uma checagem na tela. No EstoquePro, é o custo: cada venda precisa baixar produto, insumo, financeiro e auditoria na mesma transação.",
-    "Estou em formação: curso Tecnologia em Análise e Desenvolvimento de Sistemas na Faculdade Facint (2026 a 2028) e complemento com desenvolvimento full stack na Digital College e no Discover da Rocketseat. Hoje atuo como Analista de Customer Success na Dataqore, apoiando empresas na adoção de agentes de IA, automações e relatórios. Antes disso, passei por suporte técnico N1/N2, implantação de ERP/SaaS e Customer Success em empresas B2B.",
+    "Hoje atuo como Analista de Customer Success na Dataqore e estudo Análise e Desenvolvimento de Sistemas. Experiência e formação completas estão na seção Trajetória.",
     "Essa rotina me faz perguntar quem usa o sistema e o que costuma quebrar antes de escolher a stack. Trato design e código como parte do mesmo trabalho: decisões justificadas, documentadas e testáveis.",
   ],
   /** Quick facts rendered in the "ficha técnica" panel. */
   sheet: [
     {
-      label: "Formação",
-      value:
-        "Tecnologia em Análise e Desenvolvimento de Sistemas, Faculdade Facint (cursando, 2026 a 2028).",
-    },
-    {
-      label: "Cursos",
-      value: "Full Stack na Digital College e Discover na Rocketseat, ambos em andamento.",
-    },
-    {
-      label: "Experiência",
-      value:
-        "Hoje, Analista de Customer Success na Dataqore. Antes, suporte técnico N1/N2, implantação de ERP/SaaS e Customer Success em empresas B2B.",
+      label: "Atuação",
+      value: "Desenvolvimento full stack, sistemas, automação e IA aplicada.",
     },
     {
       label: "Idiomas",

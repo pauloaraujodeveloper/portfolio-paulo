@@ -5,6 +5,9 @@ import { stackGroups } from "@/data/stack";
 
 const uniqueTechnologies = new Set(stackGroups.flatMap((group) => group.items));
 
+/** Technologies that recur across the portfolio's projects (checked against src/data/projects.ts). */
+const coreStack = ["TypeScript", "React 19", "Tailwind CSS 4", "Node.js", "Fastify 5", "PostgreSQL"];
+
 export function Stack() {
   return (
     <section
@@ -37,7 +40,31 @@ export function Stack() {
           </div>
         </Reveal>
 
-        <Reveal className="mt-14" staggerMs={45}>
+        <Reveal className="mt-12">
+          <div
+            data-reveal-item
+            className="ring-gradient rounded-3xl border border-separator-border bg-background-primary-default/60 p-6 sm:p-8"
+          >
+            <p className="font-mono text-caption-1-semibold tracking-[0.16em] text-text-tertiary uppercase">
+              núcleo da stack
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2.5">
+              {coreStack.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-xl border border-electric-400/40 bg-electric-500/10 px-3.5 py-2 font-mono text-body-medium text-text-primary"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-caption-1-regular text-text-tertiary">
+              O que aparece em mais de um projeto e sustenta a maior parte do que eu entrego.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal className="mt-6" staggerMs={45}>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stackGroups.map((group, index) => (
               <li

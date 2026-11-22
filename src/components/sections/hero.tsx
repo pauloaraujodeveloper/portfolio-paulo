@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import { RiArrowRightLine, RiFileTextLine, RiGithubFill, RiLinkedinFill, RiMailLine } from "@remixicon/react";
 import { ButtonLink } from "@/components/base/buttons/button";
 import { HeroConsole } from "@/components/sections/hero-console";
+import { HeroStats } from "@/components/sections/hero-stats";
 import { prefersReducedMotion } from "@/hooks/use-reduced-motion";
 import { profile } from "@/data/profile";
 
@@ -139,6 +140,10 @@ export function Hero() {
 
         <div data-hero-step className="lg:pe-2">
           <HeroConsole />
+        </div>
+
+        <div data-hero-step className="lg:col-span-2">
+          <HeroStats />
         </div>
       </div>
     </section>
