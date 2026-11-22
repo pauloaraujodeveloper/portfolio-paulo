@@ -50,9 +50,9 @@ isso não foram usados.
 
 | Arquivo | Origem | O que mostra |
 |---------|--------|--------------|
-| `dataqore.jpeg` | site publicado | mapa interativo com trilhos e painel |
-| `estoquepro-login.jpeg` | app rodando localmente | tela de entrada com contas de demonstração |
-| `omnitask.jpg` | asset oficial do repositório | banner da marca, **não** é captura de interface |
+| `dataqore-mapa`, `dataqore-slide`, `dataqore-engenharia` | site publicado (dataqore.vercel.app) | mapa nos modos Negócio e Engenharia e um slide aberto |
+| `estoquepro-dashboard`, `estoquepro-pdv`, `estoquepro-produtos` | app rodando localmente, banco SQLite novo e vendas de exemplo feitas pelo PDV | dashboard, PDV com carrinho e lista de produtos |
+| `omnitask-quadro`, `omnitask-planejador`, `omnitask-nova-tarefa` | app rodando localmente, conta de demonstração e tarefas de exemplo | quadro, planejador mensal e diálogo de nova tarefa |
 | `agendfy-site-home.png` | site publicado | página inicial |
 | `agendfy-site-recursos.png` | site publicado | seção de recursos |
 | `agendfy-site-seguranca.png` | site publicado | seção de segurança |

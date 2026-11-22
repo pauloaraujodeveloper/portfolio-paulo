@@ -98,6 +98,7 @@ export function ProjectCard({
     >
       <ProjectVisual
         project={project}
+        rotate
         className={cx(
           "w-full border-b border-separator-border lg:border-b-0",
           flip ? "lg:order-2 lg:border-s" : "lg:border-e",

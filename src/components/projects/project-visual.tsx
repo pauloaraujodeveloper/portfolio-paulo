@@ -1,4 +1,5 @@
 import type { Project } from "@/types/portfolio";
+import { ShotCarousel } from "@/components/projects/shot-carousel";
 import { cx } from "@/utils/cx";
 
 const ACCENT: Record<Project["accent"], string> = {
@@ -15,11 +16,18 @@ const ACCENT: Record<Project["accent"], string> = {
 export function ProjectVisual({
   project,
   className,
+  rotate = false,
 }: {
   project: Project;
   className?: string;
+  /** Cycles through every screenshot automatically (main projects only). */
+  rotate?: boolean;
 }) {
   const shot = project.shots?.[0];
+
+  if (rotate && project.shots && project.shots.length > 1) {
+    return <ShotCarousel shots={project.shots} label={project.name} className={className} />;
+  }
 
   if (shot) {
     return (

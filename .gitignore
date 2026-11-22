@@ -31,3 +31,6 @@ dist-ssr
 # Documentos pessoais (não publicar no repositório)
 foto_perfil.jpeg
 Paulo_Araujo_Curriculo_Desenvolvedor.pdf
+
+# Browser automation output
+.playwright-mcp/
