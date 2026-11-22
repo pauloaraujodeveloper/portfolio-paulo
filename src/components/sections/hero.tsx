@@ -1,6 +1,6 @@
 import { animate, stagger } from "animejs";
 import { useLayoutEffect, useRef } from "react";
-import { RiArrowRightLine, RiGithubFill, RiLinkedinFill, RiMailLine } from "@remixicon/react";
+import { RiArrowRightLine, RiFileTextLine, RiGithubFill, RiLinkedinFill, RiMailLine } from "@remixicon/react";
 import { ButtonLink } from "@/components/base/buttons/button";
 import { HeroConsole } from "@/components/sections/hero-console";
 import { prefersReducedMotion } from "@/hooks/use-reduced-motion";
@@ -56,6 +56,7 @@ export function Hero() {
             className="mt-7 font-mono text-caption-1-medium tracking-[0.2em] text-electric-300 uppercase"
           >
             {profile.name}
+            <span className="text-text-tertiary"> · Full Stack · Sistemas · Automação · IA</span>
           </p>
 
           <h1
@@ -63,8 +64,8 @@ export function Hero() {
             data-hero-step
             className="mt-3 max-w-[16ch] text-display-2-semibold leading-[1.08] text-text-primary sm:text-display-1-semibold sm:leading-[1.05] lg:text-[3.75rem] lg:leading-[1.04]"
           >
-            Desenvolvo sistemas que resolvem{" "}
-            <span className="text-gradient">problemas reais.</span>
+            Construo sistemas que funcionam{" "}
+            <span className="text-gradient">no dia a dia da operação.</span>
           </h1>
 
           <p data-hero-step className="mt-6 max-w-xl text-headline-regular text-text-secondary">
@@ -77,6 +78,16 @@ export function Hero() {
             </ButtonLink>
             <ButtonLink href="#contato" variant="secondary">
               Vamos conversar
+            </ButtonLink>
+            <ButtonLink
+              href="/Paulo_Araujo_Curriculo.pdf"
+              variant="ghost"
+              leadingIcon={RiFileTextLine}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Currículo
+              <span className="sr-only"> (PDF, abre em nova aba)</span>
             </ButtonLink>
           </div>
 

@@ -35,40 +35,36 @@ function ShotGallery({ project }: { project: Project }) {
         Telas do projeto
       </p>
       <ul className="grid gap-3 sm:grid-cols-2">
-        {shots.map((shot, index) => (
-          <li
-            key={shot.src}
-            className={
-              index === 0 || (shots.length % 2 === 1 && index === shots.length - 1)
-                ? "sm:col-span-2"
-                : undefined
-            }
-          >
-            <a
-              href={shot.src}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="group block overflow-hidden rounded-2xl border border-separator-border bg-ink-900 outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
-            >
-              <img
-                src={shot.src}
-                alt={shot.alt}
-                width={shot.width}
-                height={shot.height}
-                loading={index === 0 ? "eager" : "lazy"}
-                decoding="async"
-                className="w-full bg-ink-950 object-contain transition-opacity duration-500 group-hover:opacity-95"
-              />
-              <span className="flex items-center justify-between gap-3 border-t border-separator-border px-3 py-2 text-caption-1-regular text-text-tertiary">
-                Captura real do projeto
-                <span className="inline-flex items-center gap-1 text-text-secondary">
-                  Ampliar
-                  <RiExternalLinkLine className="size-3.5" aria-hidden />
+        {shots.map((shot, index) => {
+          const isWide = index === 0 || (shots.length % 2 === 1 && index === shots.length - 1);
+          return (
+            <li key={shot.src} className={isWide ? "sm:col-span-2" : undefined}>
+              <a
+                href={shot.src}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group block overflow-hidden rounded-2xl border border-separator-border bg-ink-900 outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring"
+              >
+                <img
+                  src={shot.src}
+                  alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  className="w-full bg-ink-950 object-contain transition-opacity duration-500 group-hover:opacity-95"
+                />
+                <span className="flex items-center justify-between gap-3 border-t border-separator-border px-3 py-2 text-caption-1-regular text-text-tertiary">
+                  Captura real do projeto
+                  <span className="inline-flex items-center gap-1 text-text-secondary">
+                    Ampliar
+                    <RiExternalLinkLine className="size-3.5" aria-hidden />
+                  </span>
                 </span>
-              </span>
-            </a>
-          </li>
-        ))}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

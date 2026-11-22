@@ -4,35 +4,6 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { ButtonLink } from "@/components/base/buttons/button";
 import { profile } from "@/data/profile";
 
-const SHEET = [
-  {
-    label: "Formação",
-    value:
-      "Tecnologia em Análise e Desenvolvimento de Sistemas — Faculdade Facint (cursando, 2026–2028).",
-  },
-  {
-    label: "Cursos",
-    value: "Full Stack na Digital College e Discover na Rocketseat, ambos em andamento.",
-  },
-  {
-    label: "Experiência",
-    value:
-      "Hoje, Customer Success na Dataqore; antes, suporte técnico N1/N2, implantação de ERP/SaaS e Customer Success em empresas B2B.",
-  },
-  {
-    label: "Idiomas",
-    value: "Português nativo · Inglês básico · Espanhol básico.",
-  },
-  {
-    label: "Foco atual",
-    value: "APIs tipadas, modelagem de dados, segurança de aplicação e IA aplicada a produto.",
-  },
-  {
-    label: "Como trabalho",
-    value: "Entendo a operação antes do código; documento a decisão; verifico antes de publicar.",
-  },
-];
-
 export function About() {
   return (
     <section id="sobre" aria-labelledby="sobre-title" className="relative scroll-mt-24 py-20 sm:py-24">
@@ -48,7 +19,7 @@ export function About() {
 
           <div className="mt-8 flex flex-col gap-5" data-reveal-item>
             {profile.about.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)} className="text-headline-regular text-text-secondary">
+              <p key={paragraph} className="text-headline-regular text-text-secondary">
                 {paragraph}
               </p>
             ))}
@@ -80,7 +51,7 @@ export function About() {
             </p>
 
             <dl className="mt-6 flex flex-col divide-y divide-separator-border">
-              {SHEET.map((row) => (
+              {profile.sheet.map((row) => (
                 <div key={row.label} className="grid gap-2 py-4 first:pt-0 last:pb-0 sm:grid-cols-[7.5rem_1fr] sm:gap-4">
                   <dt className="font-mono text-caption-1-medium tracking-[0.1em] text-text-tertiary uppercase">
                     {row.label}

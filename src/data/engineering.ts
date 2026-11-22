@@ -7,9 +7,9 @@ import type { EngineeringPrinciple } from "@/types/portfolio";
 export const engineeringPrinciples: EngineeringPrinciple[] = [
   {
     id: "modelagem",
-    title: "O invariante mora no banco",
+    title: "A regra crítica fica no banco",
     description:
-      "Regra que não pode falhar não fica só na tela. Quando o dado é crítico, a restrição desce para o schema — onde nenhuma requisição concorrente consegue contornar.",
+      "Regra que não pode falhar não fica só na tela. Quando o dado é crítico, a restrição desce para o schema, onde nenhuma requisição concorrente consegue contornar.",
     evidence:
       "Constraint EXCLUDE com btree_gist impede dois agendamentos no mesmo profissional ou sala.",
     projects: ["AgendFy"],
@@ -18,7 +18,7 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
     id: "fronteiras",
     title: "Separação de responsabilidades",
     description:
-      "Conteúdo, apresentação e integração vivem em camadas distintas. O núcleo de um sistema não deveria saber qual fornecedor está do outro lado.",
+      "Conteúdo, apresentação e integração vivem em camadas distintas. O núcleo de um sistema não precisa saber qual fornecedor está do outro lado.",
     evidence:
       "O agente conversacional fala com a interface SchedulingProvider; o AgendFy é só um conector entre outros.",
     projects: ["AgendFy Chatbot", "DataQore"],
@@ -36,25 +36,25 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
     id: "seguranca",
     title: "Segurança por padrão",
     description:
-      "Senha forte, dado pessoal cifrado, sessão protegida e superfície mínima. O padrão precisa ser o caminho seguro, não a exceção.",
+      "Senha forte, dado pessoal cifrado, sessão protegida e superfície mínima. O caminho seguro precisa ser o padrão, não a exceção.",
     evidence:
       "Argon2id, MFA TOTP, cookies httpOnly + SameSite=Strict, CSP restritiva, rate limit e PII em AES-256-GCM com índice cego.",
     projects: ["AgendFy", "EstoquePro"],
   },
   {
     id: "design-system",
-    title: "Design system, não estilo solto",
+    title: "Design system como base",
     description:
-      "Cor, tipografia, espaçamento e estados vêm de tokens. Isso mantém consistência entre telas e torna tema e acessibilidade uma decisão central.",
+      "Cor, tipografia, espaçamento e estados vêm de tokens. Isso mantém as telas consistentes e deixa tema e acessibilidade como decisão de base.",
     evidence:
       "BoardUI como base de tokens; zero hex avulso no tema do OmniTask; estados hover, focus, active e disabled definidos por componente.",
     projects: ["OmniTask", "Nexora", "DataQore", "este portfólio"],
   },
   {
     id: "movimento",
-    title: "Movimento com propósito",
+    title: "Movimento com função",
     description:
-      "Animação existe para orientar atenção, não para provar que existe animação. Toda animação respeita preferência de movimento e limpa o que criou.",
+      "Animação serve para orientar a atenção. Toda animação respeita a preferência de movimento do usuário e limpa o que criou.",
     evidence:
       "Anime.js com timelines canceladas no unmount, animações que nunca escondem conteúdo e `prefers-reduced-motion` tratado como primeiro caso.",
     projects: ["OmniTask", "DataQore", "AgendFy Site"],
@@ -72,7 +72,7 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
     id: "documentacao",
     title: "Documentação como parte do produto",
     description:
-      "Decisão técnica registrada é decisão que sobrevive à próxima pessoa. Segurança, LGPD e operação entram na documentação, não no improviso.",
+      "Decisão técnica registrada é decisão que sobrevive à próxima pessoa. Segurança, LGPD e operação também precisam estar documentadas.",
     evidence:
       "Mais de 15 documentos no AgendFy (segurança, LGPD, permissões, implantação), PRD e guias de homologação no chatbot.",
     projects: ["AgendFy", "AgendFy Chatbot", "EstoquePro"],

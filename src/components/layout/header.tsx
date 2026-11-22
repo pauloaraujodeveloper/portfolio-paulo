@@ -4,18 +4,10 @@ import { Button, ButtonLink } from "@/components/base/buttons/button";
 import { ProfileAvatar } from "@/components/ui/profile-avatar";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { useScrolled } from "@/hooks/use-scrolled";
+import { navItems } from "@/data/navigation";
 import { cx } from "@/utils/cx";
 
-const NAV_ITEMS = [
-  { id: "inicio", label: "Início" },
-  { id: "sobre", label: "Sobre" },
-  { id: "projetos", label: "Projetos" },
-  { id: "tecnologias", label: "Tecnologias" },
-  { id: "engenharia", label: "Engenharia" },
-  { id: "contato", label: "Contato" },
-] as const;
-
-const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
+const SECTION_IDS = navItems.map((item) => item.id);
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -53,7 +45,7 @@ export function Header() {
         <a
           href="#inicio"
           className="group flex items-center gap-3 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-border-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background-full"
-          aria-label="Paulo Araújo — ir para o início"
+          aria-label="Paulo Araújo, ir para o início"
         >
           <ProfileAvatar loading="eager" />
           <span className="flex flex-col whitespace-nowrap leading-none">
@@ -65,7 +57,7 @@ export function Header() {
         </a>
 
         <nav aria-label="Navegação principal" className="hidden items-center gap-1 lg:flex">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             const isActive = active === item.id;
             return (
               <a
@@ -133,7 +125,7 @@ export function Header() {
         className="border-t border-separator-border bg-background-full/95 backdrop-blur-xl lg:hidden"
       >
         <nav aria-label="Navegação principal (móvel)" className="container-page flex flex-col py-3">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
@@ -148,7 +140,7 @@ export function Header() {
             >
               {item.label}
               <span aria-hidden className="font-mono text-caption-2-medium text-text-tertiary">
-                0{NAV_ITEMS.indexOf(item) + 1}
+                0{navItems.indexOf(item) + 1}
               </span>
             </a>
           ))}

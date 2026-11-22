@@ -1,14 +1,7 @@
-import { RiArrowUpLine, RiGithubFill, RiHeart3Line, RiLinkedinFill, RiMailLine } from "@remixicon/react";
+import { RiArrowUpLine, RiGithubFill, RiLinkedinFill, RiMailLine } from "@remixicon/react";
 import { ProfileAvatar } from "@/components/ui/profile-avatar";
+import { footerNavItems } from "@/data/navigation";
 import { profile } from "@/data/profile";
-
-const NAV_ITEMS = [
-  { id: "sobre", label: "Sobre" },
-  { id: "projetos", label: "Projetos" },
-  { id: "tecnologias", label: "Tecnologias" },
-  { id: "engenharia", label: "Engenharia" },
-  { id: "contato", label: "Contato" },
-] as const;
 
 /** Evaluated once at build/import time, so render stays pure. */
 const YEAR = new Date().getFullYear();
@@ -32,13 +25,17 @@ export function Footer() {
               </span>
             </a>
             <p className="mt-4 text-body-regular text-text-secondary">
-              Portfólio construído com React 19, TypeScript, Tailwind CSS 4, BoardUI e Anime.js.
-              Todo o conteúdo descreve projetos reais.
+              Portfólio feito com React 19, TypeScript, Tailwind CSS 4, BoardUI e Anime.js. Cada
+              projeto tem o repositório ou a demo indicada no card.
+            </p>
+            <p className="mt-3 text-caption-1-regular text-text-tertiary">
+              Análise, estrutura e direção são minhas; a execução do código conta com o apoio de
+              IA, revisada por mim.
             </p>
           </div>
 
           <nav aria-label="Navegação do rodapé" className="grid grid-cols-2 gap-x-10 gap-y-2 sm:grid-cols-1">
-            {NAV_ITEMS.map((item) => (
+            {footerNavItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
@@ -91,10 +88,7 @@ export function Footer() {
           <p className="text-caption-1-regular text-text-tertiary">
             © {YEAR} {profile.name}. Código e conteúdo próprios.
           </p>
-          <p className="inline-flex items-center gap-1.5 text-caption-1-regular text-text-tertiary">
-            Feito para ser lido, não para impressionar
-            <RiHeart3Line className="size-3.5 text-electric-400" aria-hidden />
-          </p>
+          <p className="text-caption-1-regular text-text-tertiary">{profile.location}</p>
         </div>
       </div>
     </footer>

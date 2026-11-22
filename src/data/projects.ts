@@ -16,7 +16,7 @@ export const projects: Project[] = [
     summary:
       "Sistema de agenda para clínicas: recepção, profissionais e pacientes no mesmo fluxo, com conflito de horário impedido pelo banco e dados pessoais criptografados.",
     problem:
-      "Clínicas pequenas e médias administram horários em planilhas e agendas paralelas. O resultado é horário vendido duas vezes, informação de paciente espalhada e nenhuma trilha de quem acessou o quê — exatamente o tipo de operação que a LGPD cobra.",
+      "Clínicas pequenas e médias administram horários em planilhas e agendas paralelas. O resultado é horário vendido duas vezes, informação de paciente espalhada e nenhuma trilha de quem acessou o quê. É o tipo de operação que a LGPD cobra.",
     solution:
       "Um serviço Fastify que entrega interface e API, com PostgreSQL como fonte da verdade. O conflito de agenda é impedido por uma constraint EXCLUDE do Postgres (profissional e sala), não por validação de tela. Dados pessoais são cifrados com AES-256-GCM e chave por clínica, com índice cego para busca por CPF e telefone.",
     highlights: [
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     ],
     status: "em-desenvolvimento",
     statusNote:
-      "Produto em evolução ativa, com migrations versionadas e documentação por módulo. Repositório privado.",
+      "Produto em desenvolvimento, com migrations versionadas e documentação por módulo. Repositório privado.",
     links: [
       {
         kind: "site",
@@ -83,15 +83,15 @@ export const projects: Project[] = [
     featured: true,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "A agenda é o coração da clínica e, ao mesmo tempo, o ponto mais frágil: dois recepcionistas, um profissional e um paciente podem disputar o mesmo horário. Planilha compartilhada não impõe regra, e erro de agenda custa tempo, receita e confiança.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "A aplicação trata a agenda como restrição de banco de dados. Profissional e sala têm faixas de tempo protegidas por EXCLUDE; escalas, bloqueios e regras de paciente entram como camadas acima desse invariante. A interface é React 19 com React Aria; a API é Fastify 5 com validação Zod.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Cadastro de pacientes, profissionais, salas e serviços",
           "Agendamento, remarcação, cancelamento e lista de espera",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
       {
         title: "Arquitetura",
         items: [
-          "Um serviço no Render entrega a SPA e a API — menos superfície para operar",
+          "Um serviço no Render entrega a SPA e a API, com menos superfície para operar",
           "Interface e servidor em workspaces separados (`web/` e `server/`)",
           "Migrations versionadas com rollback em `server/migrations/`",
           "Conflito de agenda resolvido por constraint, não por código de tela",
@@ -127,12 +127,12 @@ export const projects: Project[] = [
           "MFA TOTP obrigatório para administradores em produção",
           "Cookies httpOnly + SameSite=Strict, proteção CSRF e CSP restritiva",
           "CPF, telefone, email, nascimento e observações cifrados (AES-256-GCM)",
-          "Auditoria encadeada por hash — o banco recusa alteração, exclusão e truncamento",
+          "Auditoria encadeada por hash: o banco recusa alteração, exclusão e truncamento",
           "Exportação e anonimização de paciente para atender a LGPD",
         ],
       },
       {
-        title: "Desafios técnicos",
+        title: "O que foi difícil",
         body: "Fazer o Postgres recusar sobreposição de horário sem travar operações legítimas exigiu desenhar a constraint junto com escalas e bloqueios. Criptografar PII e ainda permitir busca por CPF levou a um índice cego. Por fim, expor escrita para LLMs com segurança significou transformar toda ação em proposta auditável, aprovada por uma pessoa.",
       },
     ],
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     name: "AgendFy Chatbot",
     tagline: "Atendimento por WhatsApp desacoplado do sistema de agenda",
     summary:
-      "Monorepo com API conversacional e painel de configuração por clínica. O núcleo fala com uma interface de agendamento, então atende qualquer sistema — o AgendFy é apenas um conector.",
+      "Monorepo com API conversacional e painel de configuração por clínica. O núcleo fala com uma interface de agendamento, então atende qualquer sistema. O AgendFy é apenas um conector.",
     problem:
       "A recepção responde as mesmas perguntas o dia inteiro e perde contato fora do horário. Acoplar o agente ao sistema de agenda de cada clínica transformaria cada integração em um projeto novo.",
     solution:
@@ -198,15 +198,15 @@ export const projects: Project[] = [
     featured: true,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "Paciente quer marcar consulta às 22h, pelo celular. A clínica quer responder isso sem colocar alguém de plantão e sem dar ao modelo acesso livre à agenda.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Um monorepo com API e painel. A API concentra o agente, as ferramentas, as regras e os conectores; o painel Next.js permite que cada clínica ajuste linguagem e fluxo sem depender de deploy. Filas em BullMQ/Redis isolam o trabalho de longa duração.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Perfis super admin, admin da clínica e atendente",
           "MFA obrigatório para super admin e administrador",
@@ -244,8 +244,8 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Desafios técnicos",
-        body: "O ponto difícil não é conversar: é manter o agente previsível quando o sistema do outro lado responde mal. Por isso o conector tem teste de contrato, a operação ausente responde \"não disponível nesta clínica\" e a confirmação de agendamento é regra de ferramenta — não instrução de prompt.",
+        title: "O que foi difícil",
+        body: "O difícil é manter o agente previsível quando o sistema do outro lado responde mal. Por isso o conector tem teste de contrato, a operação ausente responde \"não disponível nesta clínica\" e a confirmação de agendamento é regra de ferramenta, não instrução de prompt.",
       },
     ],
   },
@@ -292,7 +292,7 @@ export const projects: Project[] = [
     ],
     status: "mvp",
     statusNote:
-      "MVP 1.2 concluído e publicado no GitHub (MIT). Autenticação local de demonstração — sem backend.",
+      "MVP 1.2 concluído e publicado no GitHub (MIT). Autenticação local de demonstração, sem backend.",
     links: [
       {
         kind: "repo",
@@ -312,15 +312,15 @@ export const projects: Project[] = [
     featured: true,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "Sistemas de tarefa resolvem o quadro, mas cobram infraestrutura por algo que cabe no navegador. Para uso individual e demonstração pública, um app estático entrega a mesma experiência sem servidor.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Uma SPA em JavaScript puro organizada em módulos IIFE: estado, autenticação, renderização e indicadores separados. Os tokens do BoardUI foram portados para CSS puro, então a interface mantém espaçamento, tipografia e estados consistentes sem build.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Cadastro, edição e exclusão de tarefas com confirmação",
           "Prioridade, categoria, prazo e status; atrasadas em destaque",
@@ -356,8 +356,8 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Desafios técnicos",
-        body: "O desafio foi manter o quadro fluido sem framework: renderizações por coluna, drag & drop com alvo destacado e paginação independente. As animações nunca escondem conteúdo — há temporizador de segurança para o caso de a aba ficar oculta.",
+        title: "O que foi difícil",
+        body: "O desafio foi manter o quadro fluido sem framework: renderizações por coluna, drag & drop com alvo destacado e paginação independente. As animações nunca escondem conteúdo, e há um temporizador de segurança para o caso de a aba ficar oculta.",
       },
     ],
   },
@@ -366,7 +366,7 @@ export const projects: Project[] = [
     name: "EstoquePro",
     tagline: "Estoque e PDV multiempresa com banco isolado por cliente",
     summary:
-      "SaaS de controle de estoque para negócios de alimento e varejo: custo médio, margem, ficha técnica, lotes com validade, financeiro e auditoria — com dados separados por empresa.",
+      "SaaS de controle de estoque para negócios de alimento e varejo: custo médio, margem, ficha técnica, lotes com validade, financeiro e auditoria, com dados separados por empresa.",
     problem:
       "Marmitarias, salões, mercados e peixarias controlam estoque em planilha. Quando compram um sistema, descobrem que os dados de todas as empresas dividem as mesmas tabelas e que o cálculo de custo não corresponde à operação real.",
     solution:
@@ -430,15 +430,15 @@ export const projects: Project[] = [
     featured: true,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "Negócio pequeno não tem margem para erro de estoque. O sistema precisa responder três perguntas: quanto tenho, quanto custou de verdade e quanto sobra se eu vender por este preço.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Backend Express com SQLite nativo (node:sqlite) ou PostgreSQL, frontend SPA sem framework e uma API que resolve o tenant em cada requisição (`req.tdb`). O banco mestre guarda empresas e usuários; o banco do tenant guarda a operação.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Produtos, entradas, saídas, perdas e ajustes de estoque",
           "PDV com baixa de insumos por ficha técnica",
@@ -474,7 +474,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Desafios técnicos",
+        title: "O que foi difícil",
         body: "O cálculo de custo médio precisa sobreviver a compras, perdas e devoluções na ordem certa. A solução foi concentrar a escrita em uma única camada transacional que sempre grava Kardex e auditoria junto com o saldo.",
       },
     ],
@@ -530,15 +530,15 @@ export const projects: Project[] = [
     featured: true,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "A arquitetura existia em um documento técnico e em um deck. Nenhum dos dois convencia quem não era da área, e os dois envelheciam a cada release.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Uma one-page Next.js com export estático. O mapa é renderizado em SVG a partir de uma estrutura de dados única (`lib/mapa.ts`), então textos, cores, velocidades e origens mudam em um lugar só.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Mapa com quatro trilhos de etapa e a faixa de governança",
           "Pacotes de dados animados com rótulo de origem",
@@ -572,7 +572,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Desafios técnicos",
+        title: "O que foi difícil",
         body: "Coordenar nove animações independentes sem que uma interfira na outra exigiu um contrato de ciclo de vida comum e um registro de timers por painel. O modo de movimento reduzido foi tratado como primeiro caso, não como exceção.",
       },
     ],
@@ -633,15 +633,15 @@ export const projects: Project[] = [
     featured: false,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "Ferramentas de CS chegam caras e genéricas. Este projeto investiga a interface: como mostrar carteira, saúde e risco sem transformar a tela em uma parede de números.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "SPA com store tipada, persistência local e componentes de base reutilizáveis. O painel administrativo é carregado com React.lazy para não pesar a rota principal.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Dashboard com indicadores e séries",
           "Carteira de clientes com tabela ordenável e paginada",
@@ -665,8 +665,8 @@ export const projects: Project[] = [
         body: "Sem banco: estado em localStorage (`nexora:state:v1`). Integração única com o Google Identity Services para autenticação.",
       },
       {
-        title: "Limites declarados",
-        body: "Sem servidor, o token do Google não é validado e a checagem de administrador é apenas de interface — o próprio README registra que a autorização definitiva precisa acontecer no backend. É um projeto de frontend, apresentado como tal.",
+        title: "Limites do projeto",
+        body: "Sem servidor, o token do Google não é validado e a checagem de administrador é apenas de interface. O próprio README registra que a autorização definitiva precisa acontecer no backend. É um projeto de frontend, apresentado como tal.",
       },
     ],
     shots: [
@@ -756,15 +756,15 @@ export const projects: Project[] = [
     featured: false,
     details: [
       {
-        title: "Problema identificado",
-        body: "Marketing precisa publicar rápido, mas cada página nova não pode virar um arquivo HTML mantido à mão — muito menos um servidor para renderizar três páginas institucionais.",
+        title: "Contexto",
+        body: "Marketing precisa publicar rápido, mas cada página nova não pode virar um arquivo HTML mantido à mão, e muito menos exigir um servidor para renderizar três páginas institucionais.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Conteúdo tipado em `src/content`, páginas geradas a partir dele, build com pré-render e metadados derivados da mesma fonte. O `vercel.json` define build, saída, URLs limpas e cabeçalhos de segurança.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Renderização de todas as rotas no build",
           "Sitemap, robots e página 404 gerados",
@@ -793,7 +793,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Desafios técnicos",
+        title: "O que foi difícil",
         body: "Renderizar tudo no build sem Next.js exigiu um segundo build SSR e um script que resolve rotas, links e canonical. O conteúdo precisou de um formato que servisse à página, ao sitemap e ao `copy.md` ao mesmo tempo.",
       },
     ],
@@ -801,7 +801,7 @@ export const projects: Project[] = [
   {
     slug: "escale",
     name: "Escale",
-    tagline: "Sistema operacional de Customer Success — MVP de fase 1",
+    tagline: "MVP de fase 1 para a rotina de Customer Success",
     summary:
       "Aplicação Next.js para acompanhar carteira, 360° do cliente, timeline, tarefas em Kanban, implantações em Gantt, health score e relatórios.",
     problem:
@@ -839,15 +839,15 @@ export const projects: Project[] = [
     featured: false,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "Antes de construir integrações, era preciso saber se o fluxo de CS fazia sentido para quem usa: carteira, próximo passo e risco no mesmo lugar.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Next.js com App Router, estado global persistido em Zustand e componentes de domínio para timeline, Kanban e Gantt. Dados de demonstração realistas para exercitar os fluxos.",
       },
       {
-        title: "Funcionalidades confirmadas",
+        title: "O que está pronto",
         items: [
           "Carteira com clientes de demonstração",
           "Tela 360° com timeline de interações",
@@ -867,8 +867,8 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Limites declarados",
-        body: "Autenticação é simulada e não existe backend nesta fase. O README registra a fase 2 com NestJS, PostgreSQL e Prisma — nada disso está implementado.",
+        title: "Limites do projeto",
+        body: "Autenticação é simulada e não existe backend nesta fase. O README registra a fase 2 com NestJS, PostgreSQL e Prisma, mas nada disso está implementado.",
       },
     ],
     shots: [
@@ -895,7 +895,7 @@ export const projects: Project[] = [
     problem:
       "Traduzir um layout de Figma sem Dev Mode costuma virar tentativa e erro de espaçamento, cor e tipografia.",
     solution:
-      "Extrair a fonte da verdade para arquivos versionados — SVGs por frame, previews em PNG, tokens de cor e tabela tipográfica — e só então implementar, comparando com os previews.",
+      "Extrair a fonte da verdade para arquivos versionados: SVGs por frame, previews em PNG, tokens de cor e tabela tipográfica. Só então implementar, comparando com os previews.",
     highlights: [
       {
         title: "Especificação como artefato",
@@ -936,11 +936,11 @@ export const projects: Project[] = [
     featured: false,
     details: [
       {
-        title: "Problema identificado",
+        title: "Contexto",
         body: "Sem Dev Mode, medidas, camadas e cores vivem espalhadas em um arquivo visual. Implementar sem documentar gera retrabalho e divergência.",
       },
       {
-        title: "Solução desenvolvida",
+        title: "Como foi construído",
         body: "Um pacote de especificação com SVGs de cada frame (texto real, não vetorizado), previews e assets deduplicados, seguido da implementação em HTML e CSS com Tailwind.",
       },
       {
@@ -953,7 +953,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Limites declarados",
+        title: "Limites do projeto",
         body: "É um exercício de implementação visual a partir de um layout pronto, não um produto. O arquivo original é apenas desktop (1440px) e o site acompanha essa limitação.",
       },
     ],

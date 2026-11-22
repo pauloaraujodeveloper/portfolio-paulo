@@ -45,9 +45,9 @@ Não há `any` explícito, `@ts-ignore` ou `@ts-expect-error` no código do site
 ### Build de produção
 
 ```
-dist/index.html                       4,40 kB │ gzip:   1,55 kB
-dist/assets/index-*.css             155,67 kB │ gzip:  28,23 kB
-dist/assets/index-*.js              456,55 kB │ gzip: 144,53 kB
+dist/index.html                       4,43 kB │ gzip:   1,52 kB
+dist/assets/index-*.css             152,22 kB │ gzip:  27,85 kB
+dist/assets/index-*.js              452,15 kB │ gzip: 142,45 kB
 dist/assets/*.woff2 (12 arquivos)     303 kB │ —
 public/images/projects (15 WebP)      694 kB │ —
 ```
@@ -226,6 +226,11 @@ Verificada no DOM renderizado:
 | Copy "semtransformar" | "sem transformar" |
 | `alt` do OmniTask descrevia kanban inexistente | descrição do banner real |
 | Arquivos de preview em `public/` | removidos (`mobile-preview.html`, `og-preview.html`) |
+| Travessões e fórmulas de texto artificial na interface | copy revisado em `src/data`, `index.html` e componentes |
+| Rótulos de status duplicados no badge e nos filtros | centralizados em `src/data/project-status.ts` |
+| `NAV_ITEMS` duplicado no header e no footer | extraído para `src/data/navigation.ts` |
+| `Accordion` e `use-dismiss-on-outside-press` sem uso | removidos (CSS de 155,67 → 152,22 kB) |
+| `og.png` ainda usava a chamada antiga | `scripts/og-card.html` e `og.png` regenerados |
 
 ## Pendências conhecidas
 

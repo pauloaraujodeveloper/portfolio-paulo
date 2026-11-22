@@ -1,12 +1,13 @@
 import type { ProjectStatus } from "@/types/portfolio";
+import { projectStatusLabels } from "@/data/project-status";
 import { cx } from "@/utils/cx";
 
-const config: Record<ProjectStatus, { label: string; dot: string }> = {
-  publicado: { label: "Publicado", dot: "bg-signal-cyan" },
-  "em-desenvolvimento": { label: "Em desenvolvimento", dot: "bg-electric-400" },
-  mvp: { label: "MVP", dot: "bg-signal-violet" },
-  conceito: { label: "Conceito", dot: "bg-mist-500" },
-  estudo: { label: "Estudo", dot: "bg-mist-500" },
+const DOT: Record<ProjectStatus, string> = {
+  publicado: "bg-signal-cyan",
+  "em-desenvolvimento": "bg-electric-400",
+  mvp: "bg-signal-violet",
+  conceito: "bg-mist-500",
+  estudo: "bg-mist-500",
 };
 
 export function StatusBadge({
@@ -16,8 +17,6 @@ export function StatusBadge({
   status: ProjectStatus;
   className?: string;
 }) {
-  const { label, dot } = config[status];
-
   return (
     <span
       className={cx(
@@ -26,8 +25,8 @@ export function StatusBadge({
         className,
       )}
     >
-      <span aria-hidden className={cx("size-1.5 rounded-full", dot)} />
-      {label}
+      <span aria-hidden className={cx("size-1.5 rounded-full", DOT[status])} />
+      {projectStatusLabels[status]}
     </span>
   );
 }

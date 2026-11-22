@@ -2,10 +2,10 @@ import { useState } from "react";
 import {
   RiCheckLine,
   RiFileCopyLine,
+  RiFileTextLine,
   RiGithubFill,
   RiLinkedinFill,
   RiMailLine,
-  RiWhatsappLine,
 } from "@remixicon/react";
 import type { ComponentType } from "react";
 import { Button, ButtonLink } from "@/components/base/buttons/button";
@@ -18,7 +18,6 @@ const SOCIAL_ICON: Record<SocialLink["id"], ComponentType<{ className?: string; 
   github: RiGithubFill,
   linkedin: RiLinkedinFill,
   email: RiMailLine,
-  whatsapp: RiWhatsappLine,
 };
 
 export function Contact() {
@@ -65,6 +64,16 @@ export function Contact() {
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <ButtonLink href={`mailto:${profile.email}`} variant="primary" leadingIcon={RiMailLine}>
                     Enviar email
+                  </ButtonLink>
+                  <ButtonLink
+                    href="/Paulo_Araujo_Curriculo.pdf"
+                    variant="ghost"
+                    leadingIcon={RiFileTextLine}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    Baixar currículo
+                    <span className="sr-only"> (PDF, abre em nova aba)</span>
                   </ButtonLink>
                   <Button
                     variant="secondary"

@@ -147,22 +147,8 @@
   }
 }
 
-/* Hairline gradient rule used to separate sections without a hard border. */
-@utility rule-fade {
-  height: 1px;
-  width: 100%;
-  background-image: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-ink-700) 18%,
-    var(--color-ink-600) 50%,
-    var(--color-ink-700) 82%,
-    transparent
-  );
-}
-
-/* Engineering grid used behind the hero and the projects section. Two hairline
- * gradients at low opacity; no image request, no layout impact. */
+/* Engineering grid used behind the hero and the project visual fallback. Two
+ * hairline gradients at low opacity; no image request, no layout impact. */
 @utility surface-grid {
   background-image:
     linear-gradient(to right, color-mix(in oklab, var(--color-ink-700) 55%, transparent) 1px, transparent 1px),

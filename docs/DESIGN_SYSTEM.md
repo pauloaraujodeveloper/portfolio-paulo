@@ -162,7 +162,6 @@ padrão do display (1.29) abre demais três linhas de manchete.
 | `glow-soft` | uma fonte de luz radial por seção |
 | `ring-gradient` | borda hairline em gradiente nos cartões de destaque |
 | `text-gradient` | gradiente de texto usado **uma vez por seção** |
-| `rule-fade` | separador que desaparece nas pontas |
 | `packet-run` | pacote percorrendo o trilho do console |
 
 ## Movimento

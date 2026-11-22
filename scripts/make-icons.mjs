@@ -3,13 +3,9 @@
  *
  *   node scripts/make-icons.mjs
  *
- * The social preview (public/og.png, 1200×630) is produced from
- * scripts/og-card.html with a browser screenshot and cropped with sharp:
- *
- *   sharp("screenshot.png")
- *     .extract({ left: 0, top: 0, width: 1200, height: 630 })
- *     .png({ compressionLevel: 9 })
- *     .toFile("public/og.png");
+ * The social preview (public/og.png, 1200×630) is rendered from
+ * scripts/og-card.html: open the file in a browser with a 1200×630 viewport
+ * and save the screenshot over public/og.png.
  */
 import sharp from "sharp";
 

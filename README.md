@@ -22,6 +22,13 @@ O que a página faz:
 - agrupa a stack que aparece de fato nos repositórios;
 - liga para os sites publicados, repositórios públicos e email.
 
+## Como foi feito
+
+Eu analiso, estruturo e oriento: defino o posicionamento, o conteúdo, a
+arquitetura e os critérios de qualidade, e reviso o resultado. A IA atua como
+ferramenta de execução, escrevendo e ajustando o código sob essa direção. O
+projeto é uma colaboração, não um produto gerado automaticamente.
+
 ## Stack
 
 | Camada | Tecnologia |
@@ -73,7 +80,7 @@ src/
 │   ├── projects/           card, visual, modal de caso
 │   ├── sections/           hero, sobre, projetos, stack, engenharia, contato
 │   └── ui/                 avatar, status, título de seção
-├── data/                   conteúdo (projetos, perfil, stack, engenharia)
+├── data/                   conteúdo, navegação e rótulos de status
 ├── hooks/                  seção ativa, scroll, movimento reduzido
 ├── styles/                 tokens do portfólio + CSS global
 └── types/                  contratos do conteúdo

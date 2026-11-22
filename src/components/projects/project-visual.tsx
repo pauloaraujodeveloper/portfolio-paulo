@@ -15,15 +15,11 @@ const ACCENT: Record<Project["accent"], string> = {
 export function ProjectVisual({
   project,
   className,
-  priority = false,
-  index = 0,
 }: {
   project: Project;
   className?: string;
-  priority?: boolean;
-  index?: number;
 }) {
-  const shot = project.shots?.[index];
+  const shot = project.shots?.[0];
 
   if (shot) {
     return (
@@ -33,9 +29,8 @@ export function ProjectVisual({
           alt={shot.alt}
           width={shot.width}
           height={shot.height}
-          loading={priority ? "eager" : "lazy"}
+          loading="lazy"
           decoding="async"
-          fetchPriority={priority ? "high" : "auto"}
           className="size-full object-contain object-center"
         />
       </div>

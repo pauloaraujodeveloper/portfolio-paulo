@@ -15,19 +15,18 @@ export function Engineering() {
             <Reveal>
               <SectionHeading
                 eyebrow="Engenharia"
-                title="Decisões que sustentam"
-                accent="o produto depois do deploy."
+                title="Decisões técnicas"
+                accent="com evidência no código."
                 titleId="engenharia-title"
               />
               <div data-reveal-item className="mt-7 flex flex-col gap-4">
                 <p className="text-body-regular text-text-secondary">
-                  Estas não são boas práticas citadas de um artigo. Cada princípio abaixo aponta
-                  para um artefato concreto — uma constraint, um schema, um teste — em um dos
-                  projetos deste portfólio.
+                  Cada princípio abaixo aponta para um artefato concreto em um dos projetos deste
+                  portfólio: uma constraint, um schema, um teste.
                 </p>
                 <p className="text-body-regular text-text-secondary">
                   O critério é simples: se eu não consigo mostrar onde a decisão aparece no código,
-                  ela não vira item desta lista.
+                  ela não entra na lista.
                 </p>
               </div>
               <dl

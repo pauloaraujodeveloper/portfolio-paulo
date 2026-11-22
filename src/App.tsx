@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
+import { Trajectory } from "@/components/sections/trajectory";
 import { Projects } from "@/components/sections/projects";
 import { Stack } from "@/components/sections/stack";
 import { Engineering } from "@/components/sections/engineering";
@@ -22,6 +23,7 @@ export default function App() {
       <main id="conteudo" tabIndex={-1} className="outline-none">
         <Hero />
         <About />
+        <Trajectory />
         <Projects />
         <Stack />
         <Engineering />

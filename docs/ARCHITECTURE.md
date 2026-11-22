@@ -45,17 +45,20 @@ index.html                 metadados, OG, JSON-LD, noscript
 Todo o texto vive em `src/data`, tipado por `src/types/portfolio.ts`:
 
 ```
-src/data/projects.ts     Project[]   (9 projetos, featured → grid principal)
-src/data/profile.ts      perfil, socials, mensagem de contato
-src/data/stack.ts        StackGroup[] (8 grupos)
-src/data/engineering.ts  EngineeringPrinciple[] (8 princípios + evidência)
+src/data/projects.ts        Project[]   (9 projetos, featured → grid principal)
+src/data/profile.ts         perfil, ficha técnica, socials, mensagem de contato
+src/data/stack.ts           StackGroup[] (8 grupos)
+src/data/engineering.ts     EngineeringPrinciple[] (8 princípios + evidência)
+src/data/navigation.ts      âncoras do header e do rodapé
+src/data/project-status.ts  rótulos e ordem dos status
 ```
 
 Regras do modelo:
 
 - `Project.status` é um union de cinco estados (`publicado`,
-  `em-desenvolvimento`, `mvp`, `conceito`, `estudo`). O badge, o texto e o
-  visual do card derivam desse campo — não há status escrito à mão em JSX.
+  `em-desenvolvimento`, `mvp`, `conceito`, `estudo`). O badge e os filtros leem
+  os rótulos de `project-status.ts`, então um status novo não exige editar dois
+  arquivos.
 - `Project.links` só aceita `demo`, `repo` ou `site`. O ícone e o rótulo de
   acessibilidade vêm do tipo do link.
 - `Project.shots` é opcional. Quando existe, o card e o modal usam a captura real
@@ -119,8 +122,9 @@ esconde conteúdo de forma permanente.
 - `index.html` traz título, descrição, canonical, Open Graph, Twitter Card,
   `theme-color` e JSON-LD (`ProfilePage` → `Person`).
 - `public/robots.txt` e `public/sitemap.xml` são estáticos.
-- `public/og.png` é uma imagem 1200×630 gerada a partir de
-  `scripts/og-card.html` (captura de navegador + recorte com `sharp`).
+- `public/og.png` é uma imagem 1200×630 renderizada a partir de
+  `scripts/og-card.html`: abra o arquivo em um navegador com viewport 1200×630 e
+  salve a captura sobre `public/og.png`.
 - O texto completo dos projetos **não** está no HTML inicial: ele é renderizado
   pelo React. Para um buscador que executa JavaScript, isso é indexável; para
   pré-visualizações de rede social, o que importa são as meta tags do `<head>`,
@@ -140,9 +144,9 @@ Saída de referência (18/11/2026):
 
 | Arquivo | Tamanho | Gzip |
 |---------|---------|------|
-| `index.html` | 4,40 kB | 1,55 kB |
-| CSS | 155,67 kB | 28,23 kB |
-| JS | 456,55 kB | 144,53 kB |
+| `index.html` | 4,43 kB | 1,52 kB |
+| CSS | 152,22 kB | 27,85 kB |
+| JS | 452,15 kB | 142,45 kB |
 | Fontes (woff2, 12 arquivos) | 303 kB | — |
 | Capturas de projeto (15 WebP) | 694 kB | — |
 

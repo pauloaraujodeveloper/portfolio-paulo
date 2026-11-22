@@ -12,6 +12,7 @@ import {
   secondaryProjects,
 } from "@/data/projects";
 import type { Project, ProjectStatus } from "@/types/portfolio";
+import { projectStatusLabels, projectStatusOrder } from "@/data/project-status";
 import { cx } from "@/utils/cx";
 
 type Filter = ProjectStatus | "todos";
@@ -26,11 +27,7 @@ function projectFromHash(): Project | null {
 
 const FILTERS: { id: Filter; label: string }[] = [
   { id: "todos", label: "Todos" },
-  { id: "publicado", label: "Publicado" },
-  { id: "mvp", label: "MVP" },
-  { id: "em-desenvolvimento", label: "Em desenvolvimento" },
-  { id: "conceito", label: "Conceito" },
-  { id: "estudo", label: "Estudo" },
+  ...projectStatusOrder.map((id) => ({ id, label: projectStatusLabels[id] })),
 ];
 
 export function Projects() {
@@ -86,16 +83,16 @@ export function Projects() {
           <Reveal>
             <SectionHeading
               eyebrow="Projetos"
-              title="Sistemas construídos,"
-              accent="não conceitos de slide."
+              title="O que eu construí"
+              accent={"até\u00a0agora."}
               titleId="projetos-title"
               className="[&>h2]:max-w-none"
             />
           </Reveal>
           <Reveal delay={100}>
             <p className="text-body-regular text-text-secondary" data-reveal-item>
-              Cada projeto abaixo corresponde a um repositório real. O status indica o que está
-              publicado hoje — e os casos declaram o que ainda não existe, em vez de esconder.
+              Cada projeto corresponde a um repositório meu. O status mostra o que já está publicado
+              hoje, e cada caso descreve também o que ainda não existe.
             </p>
             <p className="mt-3 text-body-regular text-text-tertiary" data-reveal-item>
               Abra um projeto para ver problema, decisões técnicas, stack e limites.
@@ -170,8 +167,8 @@ export function Projects() {
                   Outros trabalhos
                 </h3>
                 <p className="mt-2 max-w-xl text-body-regular text-text-secondary">
-                  Produtos publicados, interfaces de estudo e exercícios de fidelidade visual — todos
-                  com o escopo declarado.
+                  Produtos publicados, interfaces de estudo e exercícios de fidelidade visual, cada
+                  um com o escopo descrito.
                 </p>
               </div>
               <span className="inline-flex items-center gap-2 font-mono text-caption-1-regular text-text-tertiary">
@@ -202,7 +199,7 @@ export function Projects() {
                 Os repositórios públicos estão no GitHub.
               </p>
               <p className="mt-1.5 text-body-regular text-text-secondary">
-                Projetos de produto com repositório privado aparecem aqui com o motivo declarado.
+                Projetos com repositório privado aparecem aqui com o motivo indicado.
               </p>
             </div>
             <ButtonLink

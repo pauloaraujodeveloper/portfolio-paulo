@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cartão social do portfólio</title>
+    <style>
+      @font-face {
+        font-family: "Inter";
+        src: url("../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2");
+        font-weight: 100 900;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2") format("woff2");
+        font-weight: 100 800;
+        font-display: block;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+      }
+
+      body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 56px 64px 44px;
+        background: #04060d;
+        color: #eef2fb;
+        font-family: "Inter", system-ui, sans-serif;
+        font-feature-settings: "ss01", "cv01";
+      }
+
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(120% 100% at 50% 0%, #000 40%, transparent 100%);
+        pointer-events: none;
+      }
+
+      .glow-left {
+        position: absolute;
+        inset: -30% auto auto -10%;
+        width: 720px;
+        height: 520px;
+        background: radial-gradient(closest-side, rgba(45, 87, 214, 0.5), transparent);
+        pointer-events: none;
+      }
+
+      .glow-right {
+        position: absolute;
+        inset: -40% -12% auto auto;
+        width: 640px;
+        height: 480px;
+        background: radial-gradient(closest-side, rgba(34, 211, 238, 0.18), transparent);
+        pointer-events: none;
+      }
+
+      .content {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .mark {
+        display: grid;
+        width: 64px;
+        height: 64px;
+        place-items: center;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #5b8cff, #2557e0);
+        color: #fff;
+        font-size: 27px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        color: #8b93a7;
+        text-transform: uppercase;
+      }
+
+      .name {
+        margin-top: 6px;
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .role {
+        margin-top: 64px;
+        font-size: 23px;
+        font-weight: 500;
+        color: #6f9bff;
+      }
+
+      h1 {
+        max-width: 1020px;
+        margin-top: 12px;
+        font-size: 62px;
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+      }
+
+      h1 span {
+        background: linear-gradient(90deg, #dfe9ff 10%, #7de5f5 90%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 22px;
+        border-top: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .chips {
+        display: flex;
+        gap: 10px;
+      }
+
+      .chip {
+        padding: 7px 13px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        border-radius: 8px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #cdd5e4;
+      }
+
+      .link {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 15px;
+        color: #8b93a7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid"></div>
+    <div class="glow-left"></div>
+    <div class="glow-right"></div>
+
+    <div class="content">
+      <div class="brand">
+        <div class="mark">PA</div>
+        <div>
+          <p class="eyebrow">Portfólio · Full Stack</p>
+          <p class="name">Paulo Araújo</p>
+        </div>
+      </div>
+
+      <p class="role">Desenvolvedor Full Stack</p>
+      <h1>Construo sistemas que funcionam <span>no dia a dia da operação.</span></h1>
+
+      <div class="footer">
+        <div class="chips">
+          <span class="chip">React 19</span>
+          <span class="chip">TypeScript</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">PostgreSQL</span>
+        </div>
+        <span class="link">github.com/pauloaraujodeveloper</span>
+      </div>
+    </div>
+  </body>
+</html>
